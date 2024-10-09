@@ -3,22 +3,29 @@
 
 int main() {
     char texto[256];
+    FILE *arquivo;
 
-    // Solicita que o usuário insira um texto
     printf("Digite o texto que deseja imprimir: ");
     fgets(texto, sizeof(texto), stdin);
 
-    // Envia o texto para a impressora usando o comando lp
-    FILE *fp = popen("lp", "w");
-    if (fp == NULL) {
-        printf("Erro ao abrir a impressora.\n");
+    arquivo = fopen("texto_para_impressao.txt", "w");
+    if (arquivo == NULL) {
+        printf("Erro ao criar o arquivo temporário.\n");
         return 1;
     }
 
-    // Escreve o texto digitado na impressora
-    fprintf(fp, "%s", texto);
-    pclose(fp);
+    fprintf(arquivo, "%s", texto);
+    fclose(arquivo);
 
-    printf("Texto enviado para a impressora.\n");
+    int resultado = system("lp texto_para_impressao.txt");
+    if (resultado != 0) {
+        printf("Erro ao enviar o arquivo para a impressora.\n");
+        return 1;
+    }
+
+    remove("texto_para_impressao.txt");
+
+    printf("Texto enviado para a impressora com sucesso.\n");
     return 0;
 }
+
