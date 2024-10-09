@@ -32,14 +32,14 @@
 
 4. **Aplique as alterações**:
 
-  Depois de editar o arquivo, execute os seguintes comandos para aplicar as mudanças:
+   Depois de editar o arquivo, execute os seguintes comandos para aplicar as mudanças:
 
-  ```bash
-  sudo dpkg-reconfigure keyboard-configuration
-  sudo service keyboard-setup restart
-  ```
+   ```bash
+   sudo dpkg-reconfigure keyboard-configuration
+   sudo service keyboard-setup restart
+   ```
 
-##Configuração da Impressora
+## Configuração da Impressora
   
 1. **Instalar o CUPS**:
 
