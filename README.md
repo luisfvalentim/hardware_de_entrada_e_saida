@@ -332,21 +332,21 @@ Esse relatório tem como objetivo explicar o processo de configuração dos disp
 ## Parte 1: Configuração dos Dispositivos
 
 1. **Configuração do Teclado**:
-   A primeira etapa foi configurar o teclado como dispositivo de entrada. No Linux, é possível alterar o layout do teclado editando o arquivo `/etc/default/keyboard`. No meu caso, alterei o layout de "us" para      "br-abnt2", que corresponde ao layout brasileiro. Para fazer isso, usei o editor de texto `nano` para modificar o arquivo de configuração, ajustando a linha responsável pelo layout para `XKBLAYOUT="br-           abnt2"`. Após realizar a alteração, apliquei as novas configurações executando os comandos `sudo dpkg-reconfigure keyboard-configuration` e `sudo service keyboard-setup restart`. Isso garantiu que o teclado      utilizasse o layout brasileiro corretamente, permitindo a entrada de texto com todos os caracteres especiais usados em português.
+   A primeira etapa foi configurar o teclado como dispositivo de entrada. No Linux, é possível alterar o layout do teclado editando o arquivo `/etc/default/keyboard`. No meu caso, alterei o layout de "us" para      "br-abnt2", que corresponde ao layout brasileiro. Para fazer isso, usei o editor de texto `nano` para modificar o arquivo de configuração, ajustando a linha responsável pelo layout para `XKBLAYOUT="br-       abnt2"`. Após realizar a alteração, apliquei as novas configurações executando os comandos `sudo dpkg-reconfigure keyboard-configuration` e `sudo service keyboard-setup restart`. Isso garantiu que o teclado      utilizasse o layout brasileiro corretamente, permitindo a entrada de texto com todos os caracteres especiais usados em português.
 
-(Imagem1.png)
+![](Imagem1.png)
 
 2. **Configuração da Impressora**
    
    A impressora, um dispositivo de saída, foi configurada utilizando o CUPS (Common Unix Printing System), um sistema popular no Linux para gerenciamento de impressoras. A instalação foi feita usando os comandos    adequados, e após a instalação, adicionei a impressora através da interface web do CUPS, acessível no navegador pelo endereço `http://localhost:631`. No painel de administração do CUPS, a impressora foi          detectada e adicionada. Com isso, ela estava pronta para uso, configurada e capaz de aceitar trabalhos de impressão. Para garantir que estava funcionando corretamente, imprime uma página de teste usando o        comando adequado.
 
-(Imagem2.png)
+![](Imagem2.png)
 
 ## Parte 2: Programa para Demonstrar Funcionamento dos Dispositivos
 
 Para demonstrar o funcionamento dos dispositivos configurados (teclado e impressora), desenvolvi um programa simples em C. Esse programa captura a entrada de texto via teclado e, em seguida, envia o texto para a impressora. O código foi estruturado de forma que o texto digitado pelo usuário seja armazenado em um arquivo temporário, que depois é enviado para a impressora usando o comando lp. Após a impressão, o arquivo é removido do sistema.
 
-(imagem3.png)
+![](imagem3.png)
 
 ## Parte 3: Monitoramento do Uso de Recursos
 
